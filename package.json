@@ -1,0 +1,33 @@
+{
+  "name": "@mektigboy/server-hyperliquid",
+  "version": "0.0.1",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc && shx chmod +x dist/*.js",
+    "prepare": "npm run build",
+    "watch": "tsc --watch",
+    "inspect": "npx @modelcontextprotocol/inspector dist/index.js"
+  },
+  "author": "mektigboy",
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "bin": {
+    "hyperliquid": "dist/index.js"
+  },
+  "description": "MCP server for Hyperliquid",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.6.1",
+    "@nktkas/hyperliquid": "^0.16.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.9",
+    "shx": "^0.3.4",
+    "typescript": "^5.8.2"
+  }
+}
