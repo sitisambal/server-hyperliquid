@@ -29,3 +29,46 @@ export const l2BookSchema = z
     nSigFigs: data.nSigFigs,
     mantissa: data.mantissa,
   }));
+
+const hexAddress = z
+  .string()
+  .regex(/^0x[0-9A-Fa-f]{40}$/, {
+    message: "User must be a 42-character hex address (0x followed by 40 hex digits)",
+  });
+
+export const openOrdersSchema = z
+  .object({
+    user: hexAddress,
+  })
+  .strict();
+
+export const userFillsSchema = z
+  .object({
+    user: hexAddress,
+    aggregateByTime: z.boolean().optional().default(false),
+  })
+  .strict();
+
+export const userFillsByTimeSchema = z
+  .object({
+    user: hexAddress,
+    startTime: z.number({
+      required_error: "Start time must be a number (ms since epoch)",
+    }),
+    endTime: z.number().optional(),
+    aggregateByTime: z.boolean().optional().default(false),
+  })
+  .strict();
+
+export const orderStatusSchema = z
+  .object({
+    user: hexAddress,
+    oid: z.union([z.string(), z.number()]),
+  })
+  .strict();
+
+export const clearinghouseStateSchema = z
+  .object({
+    user: hexAddress,
+  })
+  .strict();
