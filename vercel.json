@@ -1,14 +1,11 @@
 {
   "version": 2,
-  "functions": {
-    "index.js": {
-      "runtime": "nodejs20.x"
-    }
-  },
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "routes": [
-    { "src": "/meta",             "dest": "/index.js" },
-    { "src": "/all_mids",         "dest": "/index.js" },
-    { "src": "/l2_book",          "dest": "/index.js" },
-    { "src": "/candle_snapshot",  "dest": "/index.js" }
+    { "src": "/meta",            "dest": "dist/index.js" },
+    { "src": "/all_mids",        "dest": "dist/index.js" },
+    { "src": "/l2_book",         "dest": "dist/index.js" },
+    { "src": "/candle_snapshot", "dest": "dist/index.js" }
   ]
 }
