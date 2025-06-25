@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "functions": {
+    "index.js": {
+      "runtime": "nodejs20.x"
+    }
+  },
+  "routes": [
+    { "src": "/meta",             "dest": "/index.js" },
+    { "src": "/all_mids",         "dest": "/index.js" },
+    { "src": "/l2_book",          "dest": "/index.js" },
+    { "src": "/candle_snapshot",  "dest": "/index.js" }
+  ]
+}
